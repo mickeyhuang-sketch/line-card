@@ -362,7 +362,8 @@
                   {
                     "type": "span",
                     "text": "　多平台自動化撈單",
-                    "color": "#6B7280"
+                    "color": "#6B7280",
+                    "size": "xs"
                   }
                 ]
               },
@@ -385,7 +386,8 @@
                   {
                     "type": "span",
                     "text": "　支援手機 APP 作業",
-                    "color": "#6B7280"
+                    "color": "#6B7280",
+                    "size": "xs"
                   }
                 ]
               },
@@ -408,7 +410,8 @@
                   {
                     "type": "span",
                     "text": "　可接入 Claude 與 GPT",
-                    "color": "#6B7280"
+                    "color": "#6B7280",
+                    "size": "xs"
                   }
                 ]
               },
@@ -431,7 +434,8 @@
                   {
                     "type": "span",
                     "text": "　月年繳不買斷，依使用選版本",
-                    "color": "#6B7280"
+                    "color": "#6B7280",
+                    "size": "xs"
                   }
                 ]
               }
@@ -495,8 +499,10 @@
         "backgroundColor": "#0A2540",
         "paddingAll": "32px",
         "spacing": "md",
-        "justifyContent": "center",
         "contents": [
+          {
+            "type": "filler"
+          },
           {
             "type": "image",
             "url": "https://mickeyhuang-sketch.github.io/line-card/logo-white.png",
@@ -546,6 +552,9 @@
             "size": "xs",
             "align": "center",
             "wrap": true
+          },
+          {
+            "type": "filler"
           }
         ]
       },
