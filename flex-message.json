@@ -471,74 +471,90 @@
         "spacing": "sm",
         "contents": [
           {
-            "type": "button",
-            "style": "primary",
-            "height": "sm",
-            "color": "#0A2540",
-            "action": {
-              "type": "uri",
-              "label": "立即免費註冊",
-              "uri": "https://gowarehouse.ai/signup?utm_source=line_card&utm_medium=flex_message&utm_content=card3_signup"
-            }
-          },
-          {
-            "type": "text",
-            "text": "追蹤我們",
-            "size": "xxs",
-            "color": "#8A94A6",
-            "align": "center",
-            "margin": "sm"
-          },
-          {
             "type": "box",
             "layout": "horizontal",
-            "justifyContent": "center",
-            "spacing": "xl",
-            "margin": "sm",
+            "alignItems": "center",
             "contents": [
+              {
+                "type": "text",
+                "text": "追蹤我們",
+                "size": "xxs",
+                "color": "#8A94A6",
+                "flex": 0,
+                "gravity": "center"
+              },
+              {
+                "type": "filler"
+              },
               {
                 "type": "image",
                 "url": "https://mickeyhuang-sketch.github.io/line-card/icon-fb.png",
-                "size": "40px",
+                "size": "36px",
                 "aspectRatio": "1:1",
+                "flex": 0,
                 "action": {
                   "type": "uri",
                   "uri": "https://www.facebook.com/gowarehouse.tw"
                 }
               },
               {
+                "type": "filler"
+              },
+              {
                 "type": "image",
                 "url": "https://mickeyhuang-sketch.github.io/line-card/icon-ig.png?v=2",
-                "size": "40px",
+                "size": "36px",
                 "aspectRatio": "1:1",
+                "flex": 0,
                 "action": {
                   "type": "uri",
                   "uri": "https://www.instagram.com/gowarehouse.tw"
                 }
               },
               {
+                "type": "filler"
+              },
+              {
                 "type": "image",
                 "url": "https://mickeyhuang-sketch.github.io/line-card/icon-yt.png",
-                "size": "40px",
+                "size": "36px",
                 "aspectRatio": "1:1",
+                "flex": 0,
                 "action": {
                   "type": "uri",
                   "uri": "https://www.youtube.com/@gowarehouse"
                 }
               },
               {
+                "type": "filler"
+              },
+              {
                 "type": "image",
                 "url": "https://mickeyhuang-sketch.github.io/line-card/icon-map.png?v=2",
-                "size": "40px",
+                "size": "36px",
                 "aspectRatio": "1:1",
+                "flex": 0,
                 "action": {
                   "type": "uri",
                   "uri": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E5%BF%A0%E5%AD%9D%E6%9D%B1%E8%B7%AF%E5%9B%9B%E6%AE%B5270%E8%99%9F14%E6%A8%93%E4%B9%8B%E4%B8%80"
                 }
               }
             ]
+          },
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "color": "#0A2540",
+            "margin": "sm",
+            "action": {
+              "type": "uri",
+              "label": "立即免費註冊",
+              "uri": "https://gowarehouse.ai/signup?utm_source=line_card&utm_medium=flex_message&utm_content=card3_signup"
+            }
           }
-        ]
+        ],
+        "paddingTop": "4px"
       }
     }
   ]
