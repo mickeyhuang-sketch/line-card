@@ -14,7 +14,7 @@
             "type": "box",
             "layout": "vertical",
             "flex": 13,
-            "paddingTop": "25px",
+            "paddingTop": "10px",
             "paddingBottom": "0px",
             "contents": [
               {
@@ -127,7 +127,7 @@
         "backgroundColor": "#FFFFFF",
         "spacing": "sm",
         "paddingAll": "16px",
-        "paddingTop": "8px",
+        "paddingTop": "4px",
         "contents": [
           {
             "type": "box",
