@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mickey 電子名片</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: #0A2540;
+      color: #FFFFFF;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .panel {
+      text-align: center;
+      max-width: 320px;
+      width: 100%;
+    }
+    .logo {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #8FB8DB;
+      margin-bottom: 16px;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    p  { font-size: 14px; line-height: 1.7; color: #B8C7D9; }
+    .spinner {
+      width: 32px; height: 32px;
+      border: 3px solid rgba(255,255,255,0.2);
+      border-top-color: #FFFFFF;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 32px;
+      background: #FFFFFF;
+      color: #0A2540;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="logo">GOWAREHOUSE</div>
+
+    <div id="state-loading">
+      <div class="spinner"></div>
+      <p>正在準備名片…</p>
+    </div>
+
+    <div id="state-not-in-line" class="hidden">
+      <h1>請在 LINE 中開啟</h1>
+      <p>這個連結要在 LINE app 內開啟才能發送名片。<br>請把連結貼到 LINE 聊天室（例如 Keep），再從裡面點開。</p>
+    </div>
+
+    <div id="state-cancelled" class="hidden">
+      <h1>已取消發送</h1>
+      <p>沒有選擇任何好友，名片未送出。</p>
+      <button class="btn" onclick="sendCard()">重新選擇好友</button>
+    </div>
+
+    <div id="state-error" class="hidden">
+      <h1>出了點問題</h1>
+      <p id="error-msg">發送失敗，請關閉後重試。</p>
+      <button class="btn" onclick="sendCard()">再試一次</button>
+    </div>
+  </div>
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script>
+    // ⚠️ 建好 LIFF app 後，把 LIFF ID 填到這裡（形如 "1234567890-abcdefgh"）
+    const LIFF_ID = "REPLACE_LIFF_ID";
+
+    const FLEX_CAROUSEL = /* 與 flex-message.json 同步，改卡片內容請兩邊一起改 */
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "mega",
+      "body": {
+        "type": "box",
+        "layout": "horizontal",
+        "backgroundColor": "#FFFFFF",
+        "paddingAll": "0px",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 13,
+            "paddingTop": "25px",
+            "paddingBottom": "0px",
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://mickeyhuang-sketch.github.io/line-card/person-side.png",
+                "size": "full",
+                "aspectMode": "fit",
+                "aspectRatio": "962:1805"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 12,
+            "paddingAll": "16px",
+            "contents": [
+              {
+                "type": "text",
+                "text": "黃乙真 Mickey",
+                "weight": "bold",
+                "size": "lg",
+                "color": "#1D1D1F",
+                "margin": "9px"
+              },
+              {
+                "type": "text",
+                "text": "行銷策略總監",
+                "size": "sm",
+                "color": "#6B7280",
+                "margin": "xs"
+              },
+              {
+                "type": "text",
+                "text": "Marketing Director",
+                "size": "xxs",
+                "color": "#8A94A6"
+              },
+              {
+                "type": "text",
+                "text": "- 深耕倉儲物流",
+                "size": "sm",
+                "color": "#6B7280",
+                "margin": "md"
+              },
+              {
+                "type": "text",
+                "text": "- 專精電商營運",
+                "size": "sm",
+                "color": "#6B7280",
+                "margin": "xs"
+              },
+              {
+                "type": "text",
+                "text": "- 熟悉三方倉生態",
+                "size": "sm",
+                "color": "#6B7280",
+                "margin": "xs"
+              },
+              {
+                "type": "image",
+                "url": "https://mickeyhuang-sketch.github.io/line-card/ibiza-logo.png",
+                "size": "60px",
+                "aspectRatio": "1841:443",
+                "align": "start",
+                "margin": "lg"
+              },
+              {
+                "type": "text",
+                "text": "伊比薩股份有限公司",
+                "size": "xxs",
+                "color": "#6B7280",
+                "margin": "sm",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "統編 52444223",
+                "size": "xxs",
+                "color": "#8A94A6",
+                "margin": "xs",
+                "wrap": true
+              },
+              {
+                "type": "text",
+                "text": "02-2567-9629 #77",
+                "size": "xxs",
+                "color": "#8A94A6",
+                "margin": "xs",
+                "action": {
+                  "type": "uri",
+                  "uri": "tel:+886225679629"
+                },
+                "wrap": true
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "backgroundColor": "#FFFFFF",
+        "spacing": "sm",
+        "paddingAll": "16px",
+        "paddingTop": "8px",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "backgroundColor": "#0A2540",
+            "cornerRadius": "6px",
+            "paddingAll": "10px",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "spacing": "sm",
+            "action": {
+              "type": "uri",
+              "uri": "mailto:mickey.huang@ibiza.com.tw"
+            },
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://mickeyhuang-sketch.github.io/line-card/icon-mail.png",
+                "size": "18px",
+                "aspectRatio": "1:1",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "Email",
+                "size": "sm",
+                "weight": "bold",
+                "color": "#FFFFFF",
+                "flex": 0
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "backgroundColor": "#0A2540",
+            "cornerRadius": "6px",
+            "paddingAll": "10px",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "spacing": "sm",
+            "action": {
+              "type": "uri",
+              "uri": "https://www.linkedin.com/in/mickey-huang-414315378?utm_source=line_card&utm_medium=flex_message&utm_content=card1_linkedin"
+            },
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://mickeyhuang-sketch.github.io/line-card/icon-li.png",
+                "size": "18px",
+                "aspectRatio": "1:1",
+                "flex": 0
+              },
+              {
+                "type": "text",
+                "text": "LinkedIn",
+                "size": "sm",
+                "weight": "bold",
+                "color": "#FFFFFF",
+                "flex": 0
+              }
+            ]
+          }
+        ]
+      },
+      "header": {
+        "type": "box",
+        "layout": "vertical",
+        "backgroundColor": "#FFFFFF",
+        "paddingAll": "16px",
+        "paddingBottom": "12px",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://mickeyhuang-sketch.github.io/line-card/logo.png",
+            "size": "120px",
+            "aspectRatio": "691:139",
+            "align": "start"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "height": "4px",
+            "cornerRadius": "2px",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "flex": 1,
+                "backgroundColor": "#008ED8",
+                "contents": [
+                  {
+                    "type": "filler"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "flex": 1,
+                "backgroundColor": "#FCCC27",
+                "contents": [
+                  {
+                    "type": "filler"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "flex": 1,
+                "backgroundColor": "#00A452",
+                "contents": [
+                  {
+                    "type": "filler"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "mega",
+      "header": {
+        "type": "box",
+        "layout": "vertical",
+        "backgroundColor": "#FFFFFF",
+        "paddingAll": "16px",
+        "paddingBottom": "12px",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://mickeyhuang-sketch.github.io/line-card/logo.png",
+            "size": "120px",
+            "aspectRatio": "691:139",
+            "align": "start"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "height": "4px",
+            "cornerRadius": "2px",
+            "margin": "md",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "flex": 1,
+                "backgroundColor": "#008ED8",
+                "contents": [
+                  {
+                    "type": "filler"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "flex": 1,
+                "backgroundColor": "#FCCC27",
+                "contents": [
+                  {
+                    "type": "filler"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "flex": 1,
+                "backgroundColor": "#00A452",
+                "contents": [
+                  {
+                    "type": "filler"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "20px",
+        "paddingTop": "8px",
+        "backgroundColor": "#FFFFFF",
+        "contents": [
+          {
+            "type": "text",
+            "text": "AGENTIC WAREHOUSE PLATFORM",
+            "size": "xxs",
+            "weight": "bold",
+            "color": "#008ED8"
+          },
+          {
+            "type": "text",
+            "text": "智慧倉儲，一個系統完整實現",
+            "weight": "bold",
+            "size": "lg",
+            "color": "#1D1D1F",
+            "wrap": true,
+            "margin": "sm"
+          },
+          {
+            "type": "text",
+            "text": "台灣在地團隊打造的 B2B SaaS 雲端 WMS 平台，協助企業將倉儲營運全面數位轉型。",
+            "size": "sm",
+            "color": "#6B7280",
+            "wrap": true,
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "wrap": true,
+                "size": "sm",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "● ",
+                    "color": "#008ED8"
+                  },
+                  {
+                    "type": "span",
+                    "text": "訂單整合",
+                    "weight": "bold",
+                    "color": "#1D1D1F"
+                  },
+                  {
+                    "type": "span",
+                    "text": "　多平台自動化撈單",
+                    "color": "#6B7280"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "wrap": true,
+                "size": "sm",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "● ",
+                    "color": "#00A452"
+                  },
+                  {
+                    "type": "span",
+                    "text": "快速導入",
+                    "weight": "bold",
+                    "color": "#1D1D1F"
+                  },
+                  {
+                    "type": "span",
+                    "text": "　支援手機 APP 作業",
+                    "color": "#6B7280"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "wrap": true,
+                "size": "sm",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "● ",
+                    "color": "#FCCC27"
+                  },
+                  {
+                    "type": "span",
+                    "text": "AI 原生",
+                    "weight": "bold",
+                    "color": "#1D1D1F"
+                  },
+                  {
+                    "type": "span",
+                    "text": "　可接入 Claude 與 GPT",
+                    "color": "#6B7280"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "wrap": true,
+                "size": "sm",
+                "contents": [
+                  {
+                    "type": "span",
+                    "text": "● ",
+                    "color": "#008ED8"
+                  },
+                  {
+                    "type": "span",
+                    "text": "訂閱制",
+                    "weight": "bold",
+                    "color": "#1D1D1F"
+                  },
+                  {
+                    "type": "span",
+                    "text": "　月年繳不買斷，依使用選版本",
+                    "color": "#6B7280"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "— 3PL 指名專業倉儲系統 —",
+            "size": "sm",
+            "weight": "bold",
+            "color": "#008ED8",
+            "align": "center",
+            "margin": "lg"
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "16px",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "color": "#0A2540",
+            "action": {
+              "type": "uri",
+              "label": "前往官網了解更多",
+              "uri": "https://gowarehouse.ai/?utm_source=line_card&utm_medium=flex_message&utm_content=card2_website"
+            }
+          },
+          {
+            "type": "button",
+            "style": "secondary",
+            "height": "sm",
+            "margin": "sm",
+            "action": {
+              "type": "uri",
+              "label": "產品介紹 Sales Kit",
+              "uri": "https://gowarehouse.ai/saleskit-tw/?utm_source=line_card&utm_medium=flex_message&utm_content=card2_saleskit"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "mega",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "backgroundColor": "#0A2540",
+        "paddingAll": "32px",
+        "spacing": "md",
+        "justifyContent": "center",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://mickeyhuang-sketch.github.io/line-card/logo-white.png",
+            "size": "120px",
+            "aspectRatio": "691:139",
+            "align": "center"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "justifyContent": "center",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "backgroundColor": "#FCCC27",
+                "cornerRadius": "20px",
+                "paddingStart": "12px",
+                "paddingEnd": "12px",
+                "paddingTop": "4px",
+                "paddingBottom": "4px",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "免費試用",
+                    "size": "xxs",
+                    "weight": "bold",
+                    "color": "#1D1D1F"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "讓你的倉儲數位轉型",
+            "color": "#FFFFFF",
+            "size": "xl",
+            "weight": "bold",
+            "align": "center",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "協助您找到最適合的方案，立即開始免費試用",
+            "color": "#B8C7D9",
+            "size": "xs",
+            "align": "center",
+            "wrap": true
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "paddingAll": "16px",
+        "backgroundColor": "#FFFFFF",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "color": "#0A2540",
+            "action": {
+              "type": "uri",
+              "label": "立即免費註冊",
+              "uri": "https://gowarehouse.ai/signup?utm_source=line_card&utm_medium=flex_message&utm_content=card3_signup"
+            }
+          },
+          {
+            "type": "text",
+            "text": "追蹤我們",
+            "size": "xxs",
+            "color": "#8A94A6",
+            "align": "center",
+            "margin": "sm"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "justifyContent": "center",
+            "spacing": "xl",
+            "margin": "sm",
+            "contents": [
+              {
+                "type": "image",
+                "url": "https://mickeyhuang-sketch.github.io/line-card/icon-fb.png",
+                "size": "40px",
+                "aspectRatio": "1:1",
+                "action": {
+                  "type": "uri",
+                  "uri": "https://www.facebook.com/gowarehouse.tw"
+                }
+              },
+              {
+                "type": "image",
+                "url": "https://mickeyhuang-sketch.github.io/line-card/icon-ig.png",
+                "size": "40px",
+                "aspectRatio": "1:1",
+                "action": {
+                  "type": "uri",
+                  "uri": "https://www.instagram.com/gowarehouse.tw"
+                }
+              },
+              {
+                "type": "image",
+                "url": "https://mickeyhuang-sketch.github.io/line-card/icon-yt.png",
+                "size": "40px",
+                "aspectRatio": "1:1",
+                "action": {
+                  "type": "uri",
+                  "uri": "https://www.youtube.com/@gowarehouse"
+                }
+              },
+              {
+                "type": "image",
+                "url": "https://mickeyhuang-sketch.github.io/line-card/icon-map.png",
+                "size": "40px",
+                "aspectRatio": "1:1",
+                "action": {
+                  "type": "uri",
+                  "uri": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E5%BF%A0%E5%AD%9D%E6%9D%B1%E8%B7%AF%E5%9B%9B%E6%AE%B5270%E8%99%9F14%E6%A8%93%E4%B9%8B%E4%B8%80"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+};
+
+    function show(id) {
+      for (const s of ["state-loading", "state-not-in-line", "state-cancelled", "state-error"]) {
+        document.getElementById(s).classList.toggle("hidden", s !== id);
+      }
+    }
+
+    async function sendCard() {
+      show("state-loading");
+      try {
+        const res = await liff.shareTargetPicker([
+          {
+            type: "flex",
+            altText: "黃乙真 Mickey｜GoWarehouse 電子名片",
+            contents: FLEX_CAROUSEL
+          }
+        ]);
+        if (res) {
+          // 發送成功，直接關閉 LIFF 視窗
+          liff.closeWindow();
+        } else {
+          // 使用者在選好友畫面按了取消
+          show("state-cancelled");
+        }
+      } catch (err) {
+        document.getElementById("error-msg").textContent = "發送失敗：" + (err.message || err);
+        show("state-error");
+      }
+    }
+
+    async function main() {
+      try {
+        await liff.init({ liffId: LIFF_ID });
+      } catch (err) {
+        document.getElementById("error-msg").textContent = "LIFF 初始化失敗：" + (err.message || err);
+        show("state-error");
+        return;
+      }
+
+      if (!liff.isInClient()) {
+        show("state-not-in-line");
+        return;
+      }
+
+      if (!liff.isApiAvailable("shareTargetPicker")) {
+        document.getElementById("error-msg").textContent =
+          "此 LINE 版本不支援 shareTargetPicker，請更新 LINE app，或確認 LIFF 設定已開啟 shareTargetPicker。";
+        show("state-error");
+        return;
+      }
+
+      sendCard();
+    }
+
+    main();
+  </script>
+</body>
+</html>
