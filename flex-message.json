@@ -14,7 +14,7 @@
             "type": "box",
             "layout": "vertical",
             "flex": 13,
-            "paddingTop": "10px",
+            "paddingTop": "14px",
             "paddingBottom": "0px",
             "contents": [
               {
@@ -117,7 +117,7 @@
                 "type": "filler"
               }
             ],
-            "paddingTop": "10px"
+            "paddingTop": "14px"
           }
         ]
       },
@@ -233,7 +233,7 @@
         "type": "box",
         "layout": "vertical",
         "paddingAll": "20px",
-        "paddingTop": "10px",
+        "paddingTop": "14px",
         "backgroundColor": "#FFFFFF",
         "contents": [
           {
