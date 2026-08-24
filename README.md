@@ -30,7 +30,7 @@ LINE 個人帳號用的電子名片：點 LIFF 連結 → LINE 原生選好友�
    - **Add friend option：Off（aggressive 不用開）**
 5. 建好後同一頁把 **shareTargetPicker** 開關切到 **ON**（沒開會發不出去）
 6. 複製 **LIFF ID**（形如 `1234567890-abcdefgh`），貼給可可 → 填進 `index.html` 的 `LIFF_ID` 後重新 push 即生效
-7. Channel 保持 **Developing** 狀態即可（只有自己用，不用送審／Publish）
+7. **把 Channel 切成 Published**（頁面頂部 Developing → Published，不用審核）——Developing 狀態下只有管理員能開 LIFF，其他業務會看到 404
 
 ## 日常使用（存 Keep）
 
