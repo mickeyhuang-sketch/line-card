@@ -38,7 +38,7 @@
                 "weight": "bold",
                 "size": "lg",
                 "color": "#1D1D1F",
-                "margin": "21px"
+                "margin": "25px"
               },
               {
                 "type": "text",
@@ -58,7 +58,7 @@
                 "text": "- 深耕倉儲物流",
                 "size": "sm",
                 "color": "#6B7280",
-                "margin": "sm"
+                "margin": "md"
               },
               {
                 "type": "text",
@@ -83,7 +83,7 @@
                 "size": "60px",
                 "aspectRatio": "1841:443",
                 "align": "start",
-                "margin": "md"
+                "margin": "lg"
               },
               {
                 "type": "text",
@@ -196,7 +196,7 @@
         "type": "box",
         "layout": "vertical",
         "backgroundColor": "#FFFFFF",
-        "paddingAll": "12px",
+        "paddingAll": "16px",
         "paddingBottom": "4px",
         "contents": [
           {
@@ -216,7 +216,7 @@
         "type": "box",
         "layout": "vertical",
         "backgroundColor": "#FFFFFF",
-        "paddingAll": "12px",
+        "paddingAll": "16px",
         "paddingBottom": "4px",
         "contents": [
           {
@@ -254,7 +254,7 @@
           {
             "type": "text",
             "text": "台灣在地團隊打造的 B2B SaaS 雲端 WMS 平台，協助企業將倉儲營運全面數位轉型。",
-            "size": "xs",
+            "size": "sm",
             "color": "#6B7280",
             "wrap": true,
             "margin": "md"
@@ -262,7 +262,7 @@
           {
             "type": "box",
             "layout": "vertical",
-            "margin": "md",
+            "margin": "lg",
             "spacing": "sm",
             "contents": [
               {
