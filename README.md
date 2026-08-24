@@ -3,8 +3,17 @@
 LINE 個人帳號用的電子名片：點 LIFF 連結 → LINE 原生選好友畫面 → Flex Message 三卡名片以本人身分發出。
 
 - 線上頁面：https://mickeyhuang-sketch.github.io/line-card/
-- 名片卡片：`flex-message.json`（三張卡 carousel，可貼 [Flex Simulator](https://developers.line.biz/flex-simulator/) 驗證）
-- 發送頁：`index.html`（LIFF init → shareTargetPicker → closeWindow）
+- 名片卡片：`cards/<person>.json`（每人一份，含 altText＋三卡 carousel；`flex` 欄位可貼 [Flex Simulator](https://developers.line.biz/flex-simulator/) 驗證）
+- 發送頁：`index.html`（LIFF init → 讀 `?person=` 參數載入對應卡片 → shareTargetPicker → closeWindow）
+
+## 多人使用
+
+| 業務 | 連結（存各自的 Keep） |
+|---|---|
+| Mickey | `https://liff.line.me/2011235332-qAsX0zSV` |
+| Leo | `https://liff.line.me/2011235332-qAsX0zSV?person=leo` |
+
+加新業務：複製 `cards/leo.json` 改卡 1 內容（姓名/職稱/列點/Email/分機/LinkedIn/`utm_term`）、放去背合成照 `person-<name>.png`、push 即可。shareTargetPicker 以「開啟者」身分發送，全員共用同一個 LIFF。
 
 ## LINE Developers 設定步驟（一次性）
 
@@ -35,12 +44,12 @@ LINE 個人帳號用的電子名片：點 LIFF 連結 → LINE 原生選好友�
 | 檔案 | 用途 |
 |---|---|
 | `index.html` | LIFF 發送頁（含 Flex JSON 內嵌） |
-| `flex-message.json` | 名片 Flex carousel（與 index.html 內嵌版同步，改文案兩邊一起改） |
-| `person-side.png` | 卡 1 去背人像合成圖 |
+| `cards/*.json` | 各業務名片（altText + flex），發送時即時載入 |
+| `person-side.png` / `person-leo.png` | 卡 1 去背人像合成圖（Mickey／Leo） |
 | `logo.png` / `logo-white.png` | GoWarehouse 官方橫式 logo（藍字版／白字版） |
 | `ibiza-logo.png` | IBIZA 公司 logo |
 | `icon-*.png` | 按鈕與社群 icon（mail / li / fb / ig / yt / map） |
 
 ## 修改文案
 
-改 `flex-message.json` 後，同步更新 `index.html` 內嵌的同一份 JSON（`const FLEX_CAROUSEL`），push 到 `main` 即自動部署（GitHub Pages，約 1 分鐘生效）。
+改 `cards/<person>.json` 後 push 到 `main` 即自動部署（GitHub Pages，約 1 分鐘生效）。發送頁每次發送都即時抓最新 JSON（帶時間戳防快取），不需要動 `index.html`。

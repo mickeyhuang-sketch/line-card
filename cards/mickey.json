@@ -1,0 +1,563 @@
+{
+  "altText": "黃乙真 Mickey｜GoWarehouse 電子名片",
+  "flex": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "size": "mega",
+        "body": {
+          "type": "box",
+          "layout": "horizontal",
+          "backgroundColor": "#FFFFFF",
+          "paddingAll": "0px",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 13,
+              "paddingTop": "18px",
+              "paddingBottom": "0px",
+              "contents": [
+                {
+                  "type": "image",
+                  "url": "https://mickeyhuang-sketch.github.io/line-card/person-side.png",
+                  "size": "full",
+                  "aspectMode": "fit",
+                  "aspectRatio": "962:1805"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 12,
+              "paddingAll": "16px",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "黃乙真 Mickey",
+                  "weight": "bold",
+                  "size": "lg",
+                  "color": "#1D1D1F",
+                  "margin": "0px"
+                },
+                {
+                  "type": "text",
+                  "text": "行銷策略總監",
+                  "size": "sm",
+                  "color": "#6B7280",
+                  "margin": "xs"
+                },
+                {
+                  "type": "text",
+                  "text": "Marketing Director",
+                  "size": "xxs",
+                  "color": "#8A94A6"
+                },
+                {
+                  "type": "text",
+                  "text": "- 深耕倉儲物流",
+                  "size": "sm",
+                  "color": "#6B7280",
+                  "margin": "md"
+                },
+                {
+                  "type": "text",
+                  "text": "- 專精電商營運",
+                  "size": "sm",
+                  "color": "#6B7280",
+                  "margin": "xs"
+                },
+                {
+                  "type": "text",
+                  "text": "- 熟悉三方倉生態",
+                  "size": "sm",
+                  "color": "#6B7280",
+                  "margin": "xs"
+                },
+                {
+                  "type": "filler"
+                },
+                {
+                  "type": "image",
+                  "url": "https://mickeyhuang-sketch.github.io/line-card/ibiza-logo.png",
+                  "size": "60px",
+                  "aspectRatio": "1841:443",
+                  "align": "start",
+                  "margin": "lg"
+                },
+                {
+                  "type": "text",
+                  "text": "伊比薩股份有限公司",
+                  "size": "xxs",
+                  "color": "#6B7280",
+                  "margin": "sm",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "統編 52444223",
+                  "size": "xxs",
+                  "color": "#8A94A6",
+                  "margin": "xs",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "02-2567-9629 #77",
+                  "size": "xxs",
+                  "color": "#8A94A6",
+                  "margin": "xs",
+                  "action": {
+                    "type": "uri",
+                    "uri": "tel:+886225679629"
+                  },
+                  "wrap": true
+                },
+                {
+                  "type": "filler"
+                }
+              ],
+              "paddingTop": "18px"
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "backgroundColor": "#FFFFFF",
+          "spacing": "sm",
+          "paddingAll": "16px",
+          "paddingTop": "4px",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "backgroundColor": "#0A2540",
+              "cornerRadius": "6px",
+              "paddingAll": "10px",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "spacing": "sm",
+              "action": {
+                "type": "uri",
+                "uri": "mailto:mickey.huang@ibiza.com.tw"
+              },
+              "contents": [
+                {
+                  "type": "image",
+                  "url": "https://mickeyhuang-sketch.github.io/line-card/icon-mail.png",
+                  "size": "18px",
+                  "aspectRatio": "1:1",
+                  "flex": 0
+                },
+                {
+                  "type": "text",
+                  "text": "Email",
+                  "size": "sm",
+                  "weight": "bold",
+                  "color": "#FFFFFF",
+                  "flex": 0
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "backgroundColor": "#0A2540",
+              "cornerRadius": "6px",
+              "paddingAll": "10px",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "spacing": "sm",
+              "action": {
+                "type": "uri",
+                "uri": "https://www.linkedin.com/in/mickey-huang-414315378?utm_source=line_card&utm_medium=flex_message&utm_content=card1_linkedin&utm_term=mickey"
+              },
+              "contents": [
+                {
+                  "type": "image",
+                  "url": "https://mickeyhuang-sketch.github.io/line-card/icon-li.png",
+                  "size": "18px",
+                  "aspectRatio": "1:1",
+                  "flex": 0
+                },
+                {
+                  "type": "text",
+                  "text": "LinkedIn",
+                  "size": "sm",
+                  "weight": "bold",
+                  "color": "#FFFFFF",
+                  "flex": 0
+                }
+              ]
+            }
+          ]
+        },
+        "header": {
+          "type": "box",
+          "layout": "vertical",
+          "backgroundColor": "#FFFFFF",
+          "paddingAll": "16px",
+          "paddingBottom": "4px",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://mickeyhuang-sketch.github.io/line-card/logo.png",
+              "size": "120px",
+              "aspectRatio": "691:139",
+              "align": "start"
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "header": {
+          "type": "box",
+          "layout": "vertical",
+          "backgroundColor": "#FFFFFF",
+          "paddingAll": "16px",
+          "paddingBottom": "4px",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://mickeyhuang-sketch.github.io/line-card/logo.png",
+              "size": "120px",
+              "aspectRatio": "691:139",
+              "align": "start"
+            }
+          ]
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "paddingAll": "20px",
+          "paddingTop": "18px",
+          "backgroundColor": "#FFFFFF",
+          "contents": [
+            {
+              "type": "text",
+              "text": "智慧倉儲，一個系統完整實現",
+              "weight": "bold",
+              "size": "lg",
+              "color": "#1D1D1F",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "AGENTIC WAREHOUSE PLATFORM",
+              "size": "xxs",
+              "weight": "bold",
+              "color": "#008ED8",
+              "margin": "xs"
+            },
+            {
+              "type": "text",
+              "text": "台灣在地團隊打造的 B2B SaaS 雲端 WMS 平台，協助企業將倉儲營運全面數位轉型。",
+              "size": "sm",
+              "color": "#6B7280",
+              "wrap": true,
+              "margin": "md"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "wrap": true,
+                  "size": "sm",
+                  "contents": [
+                    {
+                      "type": "span",
+                      "text": "● ",
+                      "color": "#008ED8",
+                      "size": "xxs"
+                    },
+                    {
+                      "type": "span",
+                      "text": "訂單整合",
+                      "weight": "bold",
+                      "color": "#1D1D1F"
+                    },
+                    {
+                      "type": "span",
+                      "text": "　多平台自動化撈單",
+                      "color": "#6B7280",
+                      "size": "xs"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "wrap": true,
+                  "size": "sm",
+                  "contents": [
+                    {
+                      "type": "span",
+                      "text": "● ",
+                      "color": "#00A452",
+                      "size": "xxs"
+                    },
+                    {
+                      "type": "span",
+                      "text": "快速導入",
+                      "weight": "bold",
+                      "color": "#1D1D1F"
+                    },
+                    {
+                      "type": "span",
+                      "text": "　支援手機 APP 作業",
+                      "color": "#6B7280",
+                      "size": "xs"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "wrap": true,
+                  "size": "sm",
+                  "contents": [
+                    {
+                      "type": "span",
+                      "text": "● ",
+                      "color": "#FCCC27",
+                      "size": "xxs"
+                    },
+                    {
+                      "type": "span",
+                      "text": "AI 原生",
+                      "weight": "bold",
+                      "color": "#1D1D1F"
+                    },
+                    {
+                      "type": "span",
+                      "text": "　可接入 Claude 與 GPT",
+                      "color": "#6B7280",
+                      "size": "xs"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "wrap": true,
+                  "size": "sm",
+                  "contents": [
+                    {
+                      "type": "span",
+                      "text": "● ",
+                      "color": "#0A2540",
+                      "size": "xxs"
+                    },
+                    {
+                      "type": "span",
+                      "text": "訂閱制",
+                      "weight": "bold",
+                      "color": "#1D1D1F"
+                    },
+                    {
+                      "type": "span",
+                      "text": "　月年繳不買斷，依使用選版本",
+                      "color": "#6B7280",
+                      "size": "xs"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 1,
+              "justifyContent": "center",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "— 3PL 指名專業倉儲系統 —",
+                  "size": "md",
+                  "weight": "bold",
+                  "color": "#007498",
+                  "align": "center",
+                  "margin": "xl"
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "paddingAll": "16px",
+          "contents": [
+            {
+              "type": "button",
+              "style": "primary",
+              "height": "sm",
+              "color": "#0A2540",
+              "action": {
+                "type": "uri",
+                "label": "前往官網了解更多",
+                "uri": "https://gowarehouse.ai/?utm_source=line_card&utm_medium=flex_message&utm_content=card2_website&utm_term=mickey"
+              }
+            },
+            {
+              "type": "button",
+              "style": "secondary",
+              "height": "sm",
+              "margin": "sm",
+              "action": {
+                "type": "uri",
+                "label": "產品介紹 Sales Kit",
+                "uri": "https://gowarehouse.ai/saleskit-tw/?utm_source=line_card&utm_medium=flex_message&utm_content=card2_saleskit&utm_term=mickey"
+              }
+            }
+          ],
+          "paddingTop": "8px"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "backgroundColor": "#0A2540",
+          "paddingAll": "32px",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "filler"
+            },
+            {
+              "type": "image",
+              "url": "https://mickeyhuang-sketch.github.io/line-card/logo-white.png",
+              "size": "120px",
+              "aspectRatio": "691:139",
+              "align": "center"
+            },
+            {
+              "type": "image",
+              "url": "https://mickeyhuang-sketch.github.io/line-card/pill-trial.png",
+              "size": "88px",
+              "aspectRatio": "300:96",
+              "align": "center"
+            },
+            {
+              "type": "text",
+              "text": "讓你的倉儲數位轉型",
+              "color": "#FFFFFF",
+              "size": "xl",
+              "weight": "bold",
+              "align": "center",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "協助您找到最適方案，立即免費試用",
+              "color": "#B8C7D9",
+              "size": "xs",
+              "align": "center",
+              "wrap": true
+            },
+            {
+              "type": "filler"
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "paddingAll": "16px",
+          "backgroundColor": "#FFFFFF",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "alignItems": "center",
+              "contents": [
+                {
+                  "type": "filler"
+                },
+                {
+                  "type": "image",
+                  "url": "https://mickeyhuang-sketch.github.io/line-card/icon-fb.png",
+                  "size": "44px",
+                  "aspectRatio": "1:1",
+                  "flex": 0,
+                  "action": {
+                    "type": "uri",
+                    "uri": "https://www.facebook.com/gowarehouse.tw"
+                  }
+                },
+                {
+                  "type": "filler"
+                },
+                {
+                  "type": "image",
+                  "url": "https://mickeyhuang-sketch.github.io/line-card/icon-ig.png?v=2",
+                  "size": "44px",
+                  "aspectRatio": "1:1",
+                  "flex": 0,
+                  "action": {
+                    "type": "uri",
+                    "uri": "https://www.instagram.com/gowarehouse.tw"
+                  }
+                },
+                {
+                  "type": "filler"
+                },
+                {
+                  "type": "image",
+                  "url": "https://mickeyhuang-sketch.github.io/line-card/icon-yt.png",
+                  "size": "44px",
+                  "aspectRatio": "1:1",
+                  "flex": 0,
+                  "action": {
+                    "type": "uri",
+                    "uri": "https://www.youtube.com/@gowarehouse"
+                  }
+                },
+                {
+                  "type": "filler"
+                },
+                {
+                  "type": "image",
+                  "url": "https://mickeyhuang-sketch.github.io/line-card/icon-map.png?v=2",
+                  "size": "44px",
+                  "aspectRatio": "1:1",
+                  "flex": 0,
+                  "action": {
+                    "type": "uri",
+                    "uri": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E5%BF%A0%E5%AD%9D%E6%9D%B1%E8%B7%AF%E5%9B%9B%E6%AE%B5270%E8%99%9F14%E6%A8%93%E4%B9%8B%E4%B8%80"
+                  }
+                },
+                {
+                  "type": "filler"
+                }
+              ]
+            },
+            {
+              "type": "button",
+              "style": "primary",
+              "height": "sm",
+              "color": "#0A2540",
+              "margin": "10px",
+              "action": {
+                "type": "uri",
+                "label": "立即免費註冊",
+                "uri": "https://gowarehouse.ai/signup?utm_source=line_card&utm_medium=flex_message&utm_content=card3_signup&utm_term=mickey"
+              }
+            }
+          ],
+          "paddingTop": "10px"
+        }
+      }
+    ]
+  }
+}
