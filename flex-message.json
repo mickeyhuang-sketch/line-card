@@ -112,6 +112,9 @@
                   "uri": "tel:+886225679629"
                 },
                 "wrap": true
+              },
+              {
+                "type": "filler"
               }
             ]
           }
