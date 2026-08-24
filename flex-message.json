@@ -516,8 +516,10 @@
           {
             "type": "box",
             "layout": "horizontal",
-            "justifyContent": "center",
             "contents": [
+              {
+                "type": "filler"
+              },
               {
                 "type": "box",
                 "layout": "vertical",
@@ -536,6 +538,9 @@
                     "color": "#1D1D1F"
                   }
                 ]
+              },
+              {
+                "type": "filler"
               }
             ]
           },
