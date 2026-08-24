@@ -274,7 +274,8 @@
                   {
                     "type": "span",
                     "text": "● ",
-                    "color": "#008ED8"
+                    "color": "#008ED8",
+                    "size": "xxs"
                   },
                   {
                     "type": "span",
@@ -298,7 +299,8 @@
                   {
                     "type": "span",
                     "text": "● ",
-                    "color": "#00A452"
+                    "color": "#00A452",
+                    "size": "xxs"
                   },
                   {
                     "type": "span",
@@ -322,7 +324,8 @@
                   {
                     "type": "span",
                     "text": "● ",
-                    "color": "#FCCC27"
+                    "color": "#FCCC27",
+                    "size": "xxs"
                   },
                   {
                     "type": "span",
@@ -346,7 +349,8 @@
                   {
                     "type": "span",
                     "text": "● ",
-                    "color": "#008ED8"
+                    "color": "#0A2540",
+                    "size": "xxs"
                   },
                   {
                     "type": "span",
