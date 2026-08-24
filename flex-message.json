@@ -38,7 +38,7 @@
                 "weight": "bold",
                 "size": "lg",
                 "color": "#1D1D1F",
-                "margin": "25px"
+                "margin": "0px"
               },
               {
                 "type": "text",
@@ -116,7 +116,8 @@
               {
                 "type": "filler"
               }
-            ]
+            ],
+            "paddingTop": "10px"
           }
         ]
       },
@@ -232,24 +233,24 @@
         "type": "box",
         "layout": "vertical",
         "paddingAll": "20px",
-        "paddingTop": "4px",
+        "paddingTop": "10px",
         "backgroundColor": "#FFFFFF",
         "contents": [
-          {
-            "type": "text",
-            "text": "AGENTIC WAREHOUSE PLATFORM",
-            "size": "xxs",
-            "weight": "bold",
-            "color": "#008ED8"
-          },
           {
             "type": "text",
             "text": "智慧倉儲，一個系統完整實現",
             "weight": "bold",
             "size": "lg",
             "color": "#1D1D1F",
-            "wrap": true,
-            "margin": "sm"
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "AGENTIC WAREHOUSE PLATFORM",
+            "size": "xxs",
+            "weight": "bold",
+            "color": "#008ED8",
+            "margin": "xs"
           },
           {
             "type": "text",
