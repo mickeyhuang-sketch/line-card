@@ -75,6 +75,9 @@
                 "margin": "xs"
               },
               {
+                "type": "filler"
+              },
+              {
                 "type": "image",
                 "url": "https://mickeyhuang-sketch.github.io/line-card/ibiza-logo.png",
                 "size": "60px",
