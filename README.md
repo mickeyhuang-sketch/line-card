@@ -12,6 +12,7 @@ LINE 個人帳號用的電子名片：點 LIFF 連結 → LINE 原生選好友�
 |---|---|
 | Mickey | `https://liff.line.me/2011235332-qAsX0zSV` |
 | Leo | `https://liff.line.me/2011235332-qAsX0zSV?person=leo` |
+| Nason | `https://liff.line.me/2011235332-qAsX0zSV?person=nason` |
 
 加新業務：複製 `cards/leo.json` 改卡 1 內容（姓名/職稱/列點/Email/分機/LinkedIn/`utm_term`）、放去背合成照 `person-<name>.png`、push 即可。shareTargetPicker 以「開啟者」身分發送，全員共用同一個 LIFF。
 
@@ -45,7 +46,7 @@ LINE 個人帳號用的電子名片：點 LIFF 連結 → LINE 原生選好友�
 |---|---|
 | `index.html` | LIFF 發送頁（含 Flex JSON 內嵌） |
 | `cards/*.json` | 各業務名片（altText + flex），發送時即時載入 |
-| `person-side.png` / `person-leo.png` | 卡 1 去背人像合成圖（Mickey／Leo） |
+| `person-side.png` / `person-leo.png` / `person-nason.png` | 卡 1 去背人像合成圖（Mickey／Leo／Nason） |
 | `logo.png` / `logo-white.png` | GoWarehouse 官方橫式 logo（藍字版／白字版） |
 | `ibiza-logo.png` | IBIZA 公司 logo |
 | `icon-*.png` | 按鈕與社群 icon（mail / li / fb / ig / yt / map） |
